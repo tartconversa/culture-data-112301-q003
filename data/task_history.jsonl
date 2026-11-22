@@ -1,0 +1,2 @@
+{"id":"T-old","reviewer":"U04","references":["X001","X181"],"version":1,"purpose":"recheck","hours":2.0,"state":"accepted","accepted_on":"2026-09-09"}
+{"id":"T-done","reviewer":"U08","references":["X002"],"version":1,"purpose":"random","hours":1.0,"state":"completed","accepted_on":"2026-09-08"}

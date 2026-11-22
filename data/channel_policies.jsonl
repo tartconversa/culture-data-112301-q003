@@ -1,0 +1,2 @@
+{"id":"pc","max_major_exposure":0.05,"confidence":0.95,"required_strata":["critical","dialogue","ambient"],"block_severity":"critical"}
+{"id":"console","max_major_exposure":0.03,"confidence":0.95,"required_strata":["critical","dialogue","ambient"],"block_severity":"critical"}

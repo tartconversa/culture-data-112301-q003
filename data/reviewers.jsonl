@@ -1,0 +1,12 @@
+{"id":"U00","languages":["de","ja","fr"],"kinds":["text","subtitle","audio"],"hours":6.0,"available_on":"2026-10-01"}
+{"id":"U01","languages":["ja"],"kinds":["text","subtitle"],"hours":7.0,"available_on":"2026-10-01"}
+{"id":"U02","languages":["fr"],"kinds":["text","subtitle","audio"],"hours":8.0,"available_on":"2026-10-01"}
+{"id":"U03","languages":["de"],"kinds":["text","subtitle"],"hours":6.0,"available_on":"2026-10-01"}
+{"id":"U04","languages":["de","ja","fr"],"kinds":["text","subtitle","audio"],"hours":7.0,"available_on":"2026-10-01"}
+{"id":"U05","languages":["fr"],"kinds":["text","subtitle"],"hours":8.0,"available_on":"2026-10-01"}
+{"id":"U06","languages":["de"],"kinds":["text","subtitle","audio"],"hours":6.0,"available_on":"2026-10-01"}
+{"id":"U07","languages":["ja"],"kinds":["text","subtitle"],"hours":7.0,"available_on":"2026-10-01"}
+{"id":"U08","languages":["de","ja","fr"],"kinds":["text","subtitle","audio"],"hours":8.0,"available_on":"2026-10-01"}
+{"id":"U09","languages":["de"],"kinds":["text","subtitle"],"hours":6.0,"available_on":"2026-10-01"}
+{"id":"U10","languages":["ja"],"kinds":["text","subtitle","audio"],"hours":7.0,"available_on":"2026-10-01"}
+{"id":"U11","languages":["fr"],"kinds":["text","subtitle"],"hours":8.0,"available_on":"2026-10-01"}

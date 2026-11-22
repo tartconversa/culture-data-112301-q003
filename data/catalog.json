@@ -1,0 +1,416 @@
+{
+  "format": "jsonl-utf8-v1",
+  "synthetic": true,
+  "tables": {
+    "items": {
+      "description": "内容身份及原始作者。",
+      "fields": {
+        "id": {
+          "type": "str",
+          "nullable": false,
+          "description": "内容"
+        },
+        "fingerprint": {
+          "type": "str",
+          "nullable": false,
+          "description": "字节内容指纹"
+        },
+        "kind": {
+          "type": "str",
+          "nullable": false,
+          "description": "内容类型"
+        },
+        "language": {
+          "type": "str",
+          "nullable": false,
+          "description": "语种"
+        },
+        "author": {
+          "type": "str",
+          "nullable": false,
+          "description": "译作者"
+        }
+      },
+      "key": "id",
+      "references": {},
+      "sha256": "6fe4965318e176ad0f01ff4049f4df752adcf8670348b4b04292497e3a8fc825",
+      "row_count": 180
+    },
+    "references": {
+      "description": "剧情引用，上下文身份独立于素材身份。",
+      "fields": {
+        "id": {
+          "type": "str",
+          "nullable": false,
+          "description": "引用"
+        },
+        "item": {
+          "type": "str",
+          "nullable": false,
+          "description": "内容"
+        },
+        "scene": {
+          "type": "str",
+          "nullable": false,
+          "description": "场景"
+        },
+        "branch": {
+          "type": "str",
+          "nullable": false,
+          "description": "分支"
+        },
+        "context": {
+          "type": "str",
+          "nullable": false,
+          "description": "上下文指纹"
+        },
+        "audience_weight": {
+          "type": "float",
+          "nullable": false,
+          "description": "预期暴露相对权重"
+        },
+        "risk": {
+          "type": "str",
+          "nullable": false,
+          "description": "风险层"
+        }
+      },
+      "key": "id",
+      "references": {
+        "item": [
+          "items",
+          "id"
+        ]
+      },
+      "sha256": "9bde9812875bd7b5316ddffaf2821267fc24d9ef40da56b1803b0ab4ce8a4e74",
+      "row_count": 360
+    },
+    "versions": {
+      "description": "候选版及渠道内容集合。",
+      "fields": {
+        "id": {
+          "type": "str",
+          "nullable": false,
+          "description": "内容集合"
+        },
+        "version": {
+          "type": "int",
+          "nullable": false,
+          "description": "版本号"
+        },
+        "language": {
+          "type": "str",
+          "nullable": false,
+          "description": "语种"
+        },
+        "channel": {
+          "type": "str",
+          "nullable": false,
+          "description": "渠道"
+        },
+        "references": {
+          "type": "list",
+          "nullable": false,
+          "description": "引用集合"
+        },
+        "issued_on": {
+          "type": "str",
+          "nullable": false,
+          "description": "候选生成日"
+        }
+      },
+      "key": "id",
+      "references": {},
+      "sha256": "a287534b33497f18826cdfd015cfe5f4d6c8c67752f715598770feb4e3ee8156",
+      "row_count": 12
+    },
+    "reviews": {
+      "description": "抽检、投诉及复查记录；定向记录没有概率样本资格。",
+      "fields": {
+        "id": {
+          "type": "str",
+          "nullable": false,
+          "description": "审核"
+        },
+        "reference": {
+          "type": "str",
+          "nullable": false,
+          "description": "引用"
+        },
+        "version": {
+          "type": "int",
+          "nullable": false,
+          "description": "审核版本"
+        },
+        "reviewer": {
+          "type": "str",
+          "nullable": false,
+          "description": "审核员"
+        },
+        "purpose": {
+          "type": "str",
+          "nullable": false,
+          "description": "random概率抽检、complaint投诉、recheck定向复核"
+        },
+        "inclusion_probability": {
+          "type": "float",
+          "nullable": true,
+          "description": "该设计的纳入概率"
+        },
+        "defect_scope": {
+          "type": "str",
+          "nullable": false,
+          "description": "内容或上下文作用域"
+        },
+        "severity": {
+          "type": "str",
+          "nullable": false,
+          "description": "严重度"
+        },
+        "reviewed_on": {
+          "type": "str",
+          "nullable": false,
+          "description": "审核日"
+        }
+      },
+      "key": "id",
+      "references": {
+        "reference": [
+          "references",
+          "id"
+        ]
+      },
+      "sha256": "d05b59beb663737115bf8423cbd508ab728dd96479742acdad5f610950886e5e",
+      "row_count": 224
+    },
+    "reviewers": {
+      "description": "资格与可用工时。",
+      "fields": {
+        "id": {
+          "type": "str",
+          "nullable": false,
+          "description": "审核员"
+        },
+        "languages": {
+          "type": "list",
+          "nullable": false,
+          "description": "合格语种"
+        },
+        "kinds": {
+          "type": "list",
+          "nullable": false,
+          "description": "合格内容类型"
+        },
+        "hours": {
+          "type": "float",
+          "nullable": false,
+          "description": "可接受工时"
+        },
+        "available_on": {
+          "type": "str",
+          "nullable": false,
+          "description": "可用日"
+        }
+      },
+      "key": "id",
+      "references": {},
+      "sha256": "8d3570afe18b6f8a4c7d3da0a817ba971a71124756b6173e33a5833933178a6e",
+      "row_count": 12
+    },
+    "groups": {
+      "description": "上下文必须共同审核或共同交付的引用组。",
+      "fields": {
+        "id": {
+          "type": "str",
+          "nullable": false,
+          "description": "剧情组"
+        },
+        "references": {
+          "type": "list",
+          "nullable": false,
+          "description": "引用集合"
+        },
+        "audit_hours": {
+          "type": "float",
+          "nullable": false,
+          "description": "整组审核工时"
+        },
+        "must_deliver_together": {
+          "type": "bool",
+          "nullable": false,
+          "description": "是否不可拆交付"
+        }
+      },
+      "key": "id",
+      "references": {},
+      "sha256": "4a361ce6d493835e4302bf78f0fe6bae34f193a2f6d6792b5a3fcb2823bc65b0",
+      "row_count": 24
+    },
+    "channel_policies": {
+      "description": "渠道明示的演练质量条款。",
+      "fields": {
+        "id": {
+          "type": "str",
+          "nullable": false,
+          "description": "渠道"
+        },
+        "max_major_exposure": {
+          "type": "float",
+          "nullable": false,
+          "description": "重大缺陷暴露上界"
+        },
+        "confidence": {
+          "type": "float",
+          "nullable": false,
+          "description": "判断置信水平"
+        },
+        "required_strata": {
+          "type": "list",
+          "nullable": false,
+          "description": "须有可外推证据的层"
+        },
+        "block_severity": {
+          "type": "str",
+          "nullable": false,
+          "description": "禁止带出严重度"
+        }
+      },
+      "key": "id",
+      "references": {},
+      "sha256": "09f2111ae6e9fd701a42a3da5f0990814caa54858b35cb20406182ecb4b54695",
+      "row_count": 2
+    },
+    "changes": {
+      "description": "版本变化资料。",
+      "fields": {
+        "id": {
+          "type": "str",
+          "nullable": false,
+          "description": "变更"
+        },
+        "item": {
+          "type": "str",
+          "nullable": false,
+          "description": "内容"
+        },
+        "version": {
+          "type": "int",
+          "nullable": false,
+          "description": "新版本"
+        },
+        "new_fingerprint": {
+          "type": "str",
+          "nullable": false,
+          "description": "新内容指纹"
+        },
+        "changed_on": {
+          "type": "str",
+          "nullable": false,
+          "description": "生效日"
+        },
+        "invalid_contexts": {
+          "type": "list",
+          "nullable": false,
+          "description": "明确受时序替换影响的上下文"
+        }
+      },
+      "key": "id",
+      "references": {
+        "item": [
+          "items",
+          "id"
+        ]
+      },
+      "sha256": "7f755235394c2a310ab15dcdc4860c67fa061ed9e67e97187edc736510cec97b",
+      "row_count": 2
+    },
+    "task_history": {
+      "description": "已接受的审核工单。",
+      "fields": {
+        "id": {
+          "type": "str",
+          "nullable": false,
+          "description": "任务"
+        },
+        "reviewer": {
+          "type": "str",
+          "nullable": false,
+          "description": "审核员"
+        },
+        "references": {
+          "type": "list",
+          "nullable": false,
+          "description": "引用集合"
+        },
+        "version": {
+          "type": "int",
+          "nullable": false,
+          "description": "指定版本"
+        },
+        "purpose": {
+          "type": "str",
+          "nullable": false,
+          "description": "审核目的"
+        },
+        "hours": {
+          "type": "float",
+          "nullable": false,
+          "description": "占用工时"
+        },
+        "state": {
+          "type": "str",
+          "nullable": false,
+          "description": "任务状态"
+        },
+        "accepted_on": {
+          "type": "str",
+          "nullable": false,
+          "description": "接受日"
+        }
+      },
+      "key": "id",
+      "references": {
+        "reviewer": [
+          "reviewers",
+          "id"
+        ]
+      },
+      "sha256": "a1bd516c9c889cfc7a5716b023d700bd01b69b80220d1fcf00abc1611d330611",
+      "row_count": 2
+    },
+    "delivery_receipts": {
+      "description": "渠道已有接收事实。",
+      "fields": {
+        "id": {
+          "type": "str",
+          "nullable": false,
+          "description": "渠道回执"
+        },
+        "content_set": {
+          "type": "str",
+          "nullable": false,
+          "description": "接收内容集合"
+        },
+        "received_on": {
+          "type": "str",
+          "nullable": false,
+          "description": "接收日"
+        },
+        "state": {
+          "type": "str",
+          "nullable": false,
+          "description": "实际渠道状态"
+        }
+      },
+      "key": "id",
+      "references": {
+        "content_set": [
+          "versions",
+          "id"
+        ]
+      },
+      "sha256": "5af43e1f1d00a1f820c5aca3182a04039b3e486a2f0809374d88a4aa703df666",
+      "row_count": 2
+    }
+  }
+}
