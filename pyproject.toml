@@ -3,3 +3,8 @@ name = "localization-release-evidence"
 version = "0.1.0"
 requires-python = ">=3.11,<3.15"
 dependencies = []
+
+[tool.releaseqa]
+# 应用仅依赖 Python 标准库；requirements.txt 为资料分析环境的可选固定依赖。
+state_dir = "state"
+bundle_format = "releaseqa-bundle-v1"
